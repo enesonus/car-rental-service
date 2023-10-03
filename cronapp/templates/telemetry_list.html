@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Telemetry Data</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Telemetry Data</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Car ID</th>
+                        <th>Timestamp</th>
+                        <th>Speed</th>
+                        <th>Fuel Level</th>
+                        <th>Engine Temperature</th>
+                        <th>GPS Latitude</th>
+                        <th>GPS Longitude</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through telemetry data and display as rows -->
+                    {% for telemetry in telemetry_list %}
+                        <tr>
+                            <td>{{ telemetry.id }}</td>
+                            <td>{{ telemetry.car_id }}</td>
+                            <td>{{ telemetry.timestamp }}</td>
+                            <td>{{ telemetry.speed }}</td>
+                            <td>%{{ telemetry.fuel_level }}</td>
+                            <td>{{ telemetry.engine_temp }}</td>
+                            <td>{{ telemetry.lat }}</td>
+                            <td>{{ telemetry.lon }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

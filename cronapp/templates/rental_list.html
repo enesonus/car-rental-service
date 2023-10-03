@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rental Data</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Rental Data</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Car Model</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through rental data and display as rows -->
+                    {% for rental in rental_list %}
+                        <tr>
+                            <td>{{ rental.id }}</td>
+                            <td>{{ rental.user.first_name }} {{ rental.user.last_name }}</td>
+                            <td>{{ rental.car.model }}</td>
+                            <td>{{ rental.start_date }}</td>
+                            <td>{{ rental.end_date }}</td>
+                            <td>{{ rental.total_cost }}TL</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

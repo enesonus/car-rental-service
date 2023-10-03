@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Data</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Car Data</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Mileage</th>
+                        <th>Fuel Type</th>
+                        <th>Transmission</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through car data and display as rows -->
+                    {% for car in car_list %}
+                        <tr>
+                            <td>{{ car.id }}</td>
+                            <td>{{ car.model }}</td>
+                            <td>{{ car.year }}</td>
+                            <td>{{ car.mileage }}</td>
+                            <td>{{ car.fuel_type }}</td>
+                            <td>{{ car.transmission }}</td>
+                            <td>{{ car.color }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
